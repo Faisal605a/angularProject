@@ -38,8 +38,7 @@ export class ShoppingListEditComponent implements OnInit , OnDestroy{
    
      
 
-      
-
+    
     
   }
   onDelete(){
