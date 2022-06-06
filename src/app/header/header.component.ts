@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service.component';
 import { RecipeService } from '../recipes/Recipe.service';
@@ -18,7 +19,8 @@ export class HeaderComponent  implements OnInit,OnDestroy{
 
   ngOnInit(): void {
      this.userSub= this.AuthService.user.subscribe(user => {
-       this.logedIn= !!user
+       //console.log("!!!!!!!"+user.id);
+       this.logedIn= user.email.length>1;
      });
      
   }
@@ -29,6 +31,13 @@ export class HeaderComponent  implements OnInit,OnDestroy{
   Save(){
     this.storageService.storeRecipes();
   }
+  logOut(){
+    this.AuthService.singOut();
+
+    //this.logedIn=false;
+    
+  }
+  
 
   Fetch(){
     this.storageService.fetchData().subscribe();

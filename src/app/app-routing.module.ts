@@ -2,6 +2,7 @@ import { chainedInstruction } from "@angular/compiler/src/render3/view/util";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthComponent } from "./auth/auth.component";
+import { AuthGuard } from "./auth/auth.guard";
 import { HeaderComponent } from "./header/header.component";
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipeResolverService } from "./recipe-start/recipes-resolver.service";
@@ -20,7 +21,10 @@ const appRoute : Routes= [
     // {path: 'shopping-list', component: ShoppingListComponent ,children :[
     //     //{path : ':edit', component: ShoppingListEditComponent},
     // ]},
-    {path: 'recipes', component: RecipesComponent, children : [
+    {path: 'recipes',
+     component: RecipesComponent,
+     canActivate : [AuthGuard],
+     children : [
        {path: '', component: RecipeStartComponent},
        {path: 'new', component: RecipeEditComponent},
         {path: ':id', component: RecipeDetailComponent, resolve: [RecipeResolverService] },

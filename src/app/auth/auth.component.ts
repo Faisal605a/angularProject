@@ -13,6 +13,7 @@ export class AuthComponent{
 isLoginMode = true;
 isLoading = true;
 error : string= "";
+
 @ViewChild('f') ShoppingForm: NgForm | undefined;
     
     constructor(private authService : AuthService,private  router: Router){
@@ -24,12 +25,13 @@ error : string= "";
     }
         Submit( NgForm : NgForm){
             let Sub : Observable<AuthResponseData> ;
-
+              
             if(!NgForm.valid){
                 return 
             }
             const form = NgForm.value;
                 this.isLoading=false
+               
                 if(!this.isLoginMode)
                     Sub= this.authService.signup(form.email, form.Password);
                 
@@ -43,6 +45,7 @@ error : string= "";
                 console.log(error)
                 this.error=error.error.error.message;
             })
+           
            this.isLoading=true;
            NgForm.reset();
 
