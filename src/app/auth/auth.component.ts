@@ -20,6 +20,9 @@ error : string= "";
 
     }
     
+    onHandelError(){
+        this.error="";
+    }
     onSwitchMode(){
         this.isLoginMode=!this.isLoginMode;
     }
