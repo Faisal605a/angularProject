@@ -1,13 +1,18 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import {  ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
+import { AppRoutingMoudle } from "../app-routing.module";
+import { AppModule } from "../app.module";
+import { DropdownDirective } from "../Shared/dropdown.directive";
+import { SharedModule } from "../Shared/shared.module";
 import { RecipeDetailComponent } from "./recipe-detail/recipe-detail.component";
 import { RecipeEditComponent } from "./recipe-edit/recipe-edit.component";
 import { RecipeItemComponent } from "./recipe-list/recipe-item/recipe-item.component";
 import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
-import { RecipesRoutingMoudle } from "./recipe-start/Recipes-Routing.module";
+import { RecipesRoutingMoudle } from "./Recipes-Routing.module";
 import { RecipesComponent } from "./recipes.component";
 
 
@@ -22,7 +27,9 @@ import { RecipesComponent } from "./recipes.component";
     ],
     imports:[
         RouterModule,
-        CommonModule,
+        SharedModule,
+        AppRoutingMoudle,
+        BrowserModule,
         ReactiveFormsModule,
         RecipesRoutingMoudle
     ]

@@ -15,17 +15,14 @@ import { alertComponent } from './Shared/alert/alert.component';
 import { PlaceholderDirective } from './Shared/PlaceHolder/PlaceHolder.component';
 import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { SharedModule } from './Shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    alertComponent,
-    DropdownDirective,
-    HeaderComponent,
-    loadingSpinnerComponent,
-    PlaceholderDirective
+    HeaderComponent
   ],
   imports: [
     AppRoutingMoudle,
@@ -34,6 +31,7 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     HttpClientModule,
     ReactiveFormsModule,
     RecipesModule,
+    SharedModule,
     ShoppingListModule
   ],
 
