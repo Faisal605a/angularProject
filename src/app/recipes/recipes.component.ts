@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { Recipe } from './recipe.module';
+
 
 
 @Component({

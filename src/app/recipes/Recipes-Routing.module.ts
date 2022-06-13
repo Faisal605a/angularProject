@@ -8,8 +8,8 @@ import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipeResolverService } from "./recipe-start/recipes-resolver.service";
 
 
-const router : Routes= [
-    {path: 'recipes',
+const recipeRouter : Routes= [
+    {path: '',
     component: RecipesComponent,
     canActivate : [AuthGuard],
     children : [
@@ -24,7 +24,7 @@ const router : Routes= [
 ]
 
 @NgModule({
-    imports: [ RouterModule.forChild(router)],
+    imports: [ RouterModule.forChild(recipeRouter)],
     exports: [RouterModule]
 })
 export class RecipesRoutingMoudle{}
